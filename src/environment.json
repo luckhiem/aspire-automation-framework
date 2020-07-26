@@ -1,0 +1,7 @@
+{
+    "domain": "qa-test.customer-frontend.staging.aspireapp.com",
+    "adminstrator": {
+        "username": "administrator@yopmail.com",
+        "password": "Admin123456"
+    }
+}
