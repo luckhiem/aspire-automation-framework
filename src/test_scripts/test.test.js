@@ -5,8 +5,13 @@ let page = PageFactory;
 
 const user = {
     name: "Steve",
-    email: "Steve@gmail.com",
-    phone: 22222222,
+    email: "Steve1@gmail.com",
+    phone: 33333334,
+    heard_about: {
+        channel: "Referral",
+        detail: "CODE123456"
+    },
+    otp: 123456
 }
 
 describe('Adding People', () => {
@@ -14,6 +19,6 @@ describe('Adding People', () => {
     it('Adding People', () => {
         page.Register
             .open()
-            .doRegister(user)
+            .registerUser(user)
     });
 });
