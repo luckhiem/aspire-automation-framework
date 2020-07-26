@@ -8,6 +8,7 @@ const PHONE_NUMBER_TXB = 'input[data-cy="register-person-phone"]';
 const HEARD_ABOUT_DRD = 'div[data-cy="register-person-heard-about"]';
 const PRIVACY_CBX = 'div[data-cy="register-person-privacy"]';
 const OTP_TXB = 'input[data-cy="digit-input-pin"]';
+const VERIFY_OTP_BTN = 'button[data-cy="verify-otp-submit"]';
 const CONTINUE_BTN = '.aspire-button--cta';
 
 class RegisterPage {
@@ -34,9 +35,11 @@ class RegisterPage {
         return this;
     }
 
-    // _verfiyOTPCode(){
-
-    // }
+    _verfiyOTPCode(otp){
+        ElementHandler.addValue(OTP_TXB, otp);
+        ElementHandler.click(VERIFY_OTP_BTN);
+        return this;
+    }
 
     /**
      * @param {User} user
@@ -49,8 +52,7 @@ class RegisterPage {
         ElementHandler.click(PRIVACY_CBX);
         ElementHandler.click(CONTINUE_BTN);
         browser.pause(5000);
-        ElementHandler.addValue(OTP_TXB, user.otp);
-        browser.pause(5000);
+        this._verfiyOTPCode(user.otp)
         return this;
     }
 
