@@ -47,12 +47,14 @@ class RegisterPage {
     registerUser(user) {
         ElementHandler.addValue(PERSON_NAME_TXB, user.name);
         ElementHandler.addValue(EMAIL_TXB, user.email);
+        browser.pause(3000);
         ElementHandler.addValue(PHONE_NUMBER_TXB, user.phone);
         this._selectPersonHeardAbout(user.heard_about)
         ElementHandler.click(PRIVACY_CBX);
         ElementHandler.click(CONTINUE_BTN);
         browser.pause(5000);
-        this._verfiyOTPCode(user.otp)
+        this._verfiyOTPCode(user.otp);
+        browser.pause(5000);
         return this;
     }
 

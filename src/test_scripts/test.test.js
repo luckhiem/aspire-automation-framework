@@ -5,8 +5,8 @@ let page = PageFactory;
 
 const user = {
     name: "Steve",
-    email: "Steve4@gmail.com",
-    phone: 33333554,
+    email: "elon1@gmail.com",
+    phone: 33333464,
     heard_about: {
         channel: "Referral",
         detail: "CODE123456"
