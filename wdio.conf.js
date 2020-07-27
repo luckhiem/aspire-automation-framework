@@ -13,7 +13,12 @@ exports.config = {
         'goog:chromeOptions': {
             // to run chrome headless the following flags are required
             // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
-            args: ['use-fake-ui-for-media-stream', 'use-fake-device-for-media-stream'],
+            args: [
+                '--use-fake-ui-for-media-stream',
+                '--use-fake-device-for-media-stream',
+                // '--use-file-for-fake-video-capture="C:\System Development Task\aspire\aspire-automation-framework\resource\face.y4m"',
+                // '--allow-file-access-from-files'
+            ],
             prefs: {
                 "profile.default_content_setting_values.media_stream_camera": 1
             }

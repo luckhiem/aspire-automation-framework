@@ -12,7 +12,7 @@ const BEGIN_BTN = "div[label='Begin Verification'] button";
 const IDENTIFY_CARD_BTN = '.onfido-sdk-ui-DocumentSelector-icon-national-identity-card';
 const IDENTIFY_CARD_UPLOAD = '.onfido-sdk-ui-CustomFileInput-input';
 const CARD_SUBMIT_BTN = '.onfido-sdk-ui-Button-button-primary';
-const TAKE_SELFIE_BTN = '.onfido-sdk-ui-Camera-bt'
+const TAKE_SELFIE_BTN = '.onfido-sdk-ui-Camera-btn';
 
 class IdentifyDetails {
     acccessIdentifyDetailPage() {
@@ -47,8 +47,10 @@ class IdentifyDetails {
 
     takeSelfie() {
         ElementHandler.click(CARD_SUBMIT_BTN);
-        browser.pause(5000);
-        ElementHandler.click(TAKE_SELFIE_BTN);
+        browser.pause(10000)
+        $(TAKE_SELFIE_BTN).click();
+        ElementHandler.click(CARD_SUBMIT_BTN);
+        browser.pause(60000)
         return this;
     }
 
@@ -62,13 +64,6 @@ class IdentifyDetails {
         this.verifyIdentifyCard();
         this.takeSelfie();
         browser.pause(10000)
-        // this.inputBusinessName(business.name);
-        // this.selectRegistrationType(business.type);
-        // this.inputUENNumber(business.uen);
-        // this.selectBusinessRole(business.role);
-        // this.selectIndustry(business.industry);
-        // this.clickSubmitBtn();
-        // Common.waitForPageLoading()
         return this;
     }
 }
