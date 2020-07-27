@@ -10,11 +10,14 @@ exports.config = {
     capabilities: [{
         maxInstances: 1,
         browserName: 'chrome',
-        // 'goog:chromeOptions': {
-        //     // to run chrome headless the following flags are required
-        //     // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
-        //     args: ['--headless', '--disable-gpu'],
-        // }
+        'goog:chromeOptions': {
+            // to run chrome headless the following flags are required
+            // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
+            args: ['use-fake-ui-for-media-stream', 'use-fake-device-for-media-stream'],
+            prefs: {
+                "profile.default_content_setting_values.media_stream_camera": 1
+            }
+        }
     }],
     logLevel: 'silent',
     bail: 0,
