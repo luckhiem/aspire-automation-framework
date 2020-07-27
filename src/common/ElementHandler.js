@@ -105,6 +105,16 @@ class ElementHandler {
         return $(locator).getAttribute(attribute);
     }
 
+    /**
+    * @param {string} locator    Element for verify
+    * @param {string} attribute    Attribute for verify
+    * @param {string} value    Value for verify
+    */
+    verifyAttribute(locator, attribute, value) {
+        let result = this.getAttribute(locator, attribute)
+        expect(result).to.include(value);
+        return this;
+    }   
 
     /**
     * @param {string} title    Element for verify

@@ -5,8 +5,8 @@ let page = PageFactory;
 
 const user = {
     name: "Steve",
-    email: "elon1@gmail.com",
-    phone: 33333464,
+    email: Math.floor(Math.random() * 88888888) + "elon1@gmail.com",
+    phone: Math.floor(10000000 + Math.random() * 90000000),
     heard_about: {
         channel: "Referral",
         detail: "CODE123456"
@@ -16,9 +16,9 @@ const user = {
 
 describe('Adding People', () => {
     it('Adding People', () => {
-        // page.Register
-        //     .open()
-        //     .registerUser(user)
+        page.Register
+            .open()
+            .registerUser(user)
         // browser.url("https://qa-test.customer-frontend.staging.aspireapp.com/sg/kyc-dashboard/identify-detail");
         // browser.pause(3000);
         // $('input[data-cy="register-person-phone"]').addValue(44444444);
