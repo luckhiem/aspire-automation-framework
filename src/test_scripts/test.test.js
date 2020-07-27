@@ -11,7 +11,10 @@ const user = {
         channel: "Referral",
         detail: "CODE123456"
     },
-    otp: 123456
+    otp: 123456,
+    birthDate: "Jul 10, 1995",
+    nation: 'China',
+    gender: 'Female'
 }
 
 describe('Adding People', () => {
@@ -24,6 +27,9 @@ describe('Adding People', () => {
             .acccessMethodSelectPage()
             .selectACRAMethod()
             .selectManualVerifyMethod()
+
+        page.PersonalDetails
+            .addPersonalDetails(user)
         // browser.url("https://qa-test.customer-frontend.staging.aspireapp.com/sg/kyc-dashboard/identify-detail");
         // browser.pause(3000);
         // $('input[data-cy="register-person-phone"]').addValue(44444444);

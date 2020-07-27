@@ -3,6 +3,8 @@ const AdminSettings = require('./admin_settings/AdminSettings.po');
 const PeopleAdd = require('./admin_settings/PeopleAdd.po');
 const Register = require('./auth/Register.po');
 const MethodSelect = require('./incorporate_selector/SelectMethod.po');
+const PersonalDetails = require('./personal_details/PersonalDetails.po');
+
 
 
 const PageFactory = function () {
@@ -11,7 +13,8 @@ const PageFactory = function () {
         AdminSettings: AdminSettings,
         PeopleAdd: PeopleAdd,
         Register: Register,
-        MethodSelect: MethodSelect
+        MethodSelect: MethodSelect,
+        PersonalDetails: PersonalDetails
     }
 };
 module.exports = PageFactory();
