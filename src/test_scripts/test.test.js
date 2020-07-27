@@ -18,19 +18,23 @@ const user = {
     purpose: 'Credit Line'
 }
 
+const business = {
+    name: "APPLE",
+    type: "Limited liability partnership",
+    uen: Math.floor(100000000 + Math.random() * 900000000) + "M",
+    role: "Company Finance/Admin",
+    industry: {
+        type: "Heavy Services",
+        sub: "Energy"
+    }
+}
+
 describe('Adding People', () => {
     it('Adding People', () => {
-        page.Register
-            .open()
-            .registerUser(user)
-
-        page.MethodSelect
-            .acccessMethodSelectPage()
-            .selectACRAMethod()
-            .selectManualVerifyMethod()
-
-        page.PersonalDetails
-            .addPersonalDetails(user)
+        page.Register.open().registerUser(user)
+        page.MethodSelect.selectMethod()
+        page.PersonalDetails.addPersonalDetails(user)
+        page.BusinessDetails.addBusinessDetails(business)
         // browser.url("https://qa-test.customer-frontend.staging.aspireapp.com/sg/kyc-dashboard/identify-detail");
         // browser.pause(3000);
         // $('input[data-cy="register-person-phone"]').addValue(44444444);

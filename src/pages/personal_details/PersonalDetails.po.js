@@ -12,7 +12,7 @@ const OTP_TXB = 'input[data-cy="digit-input-pin"]';
 const VERIFY_OTP_BTN = 'button[data-cy="verify-otp-submit"]';
 
 class PersonalDetails {
-    acccessMethodSelectPage() {
+    acccessPersonalDetailPage() {
         BrowserHandler.navigate(CONFIG.PATH.PERSONAL_DETAIL_URL);
         ElementHandler.verifyURL(CONFIG.PATH.PERSONAL_DETAIL_URL);
         ElementHandler.waitForElementDisplayed(PERSONAL_DETAL)
@@ -86,6 +86,9 @@ class PersonalDetails {
         return this;
     }
 
+    /**
+     * @param {User} user
+     */
     addPersonalDetails(user){
         this.clickSubmitBtn();
         this.selectBirthDay();

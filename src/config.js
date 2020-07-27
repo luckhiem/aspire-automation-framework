@@ -23,6 +23,7 @@ const config = function () {
             LOGIN_URL: `https://${ENV.domain}/signin`,
             SELECT_METHOD_URL: `https://${ENV.domain}/sg/incorporate-selector`,
             PERSONAL_DETAIL_URL: `https://${ENV.domain}/sg/kyc-dashboard/person-detail`,
+            BUSINESS_DETAIL_URL: `https://${ENV.domain}/sg/kyc-dashboard/business-detail`,
         },
         user: {
             admin: new User({ email: ENV.adminstrator.username, password: ENV.adminstrator.password }),

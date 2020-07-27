@@ -35,8 +35,15 @@ class MethodSelect {
     selectManualVerifyMethod() {
         this._waitForPageLoading()
         ElementHandler.click(MANUAL_VERIFY_BTN);
-        browser.pause(5000)
         return this;
+    }
+
+    selectMethod(){
+        this.acccessMethodSelectPage();
+        this._waitForPageLoading();
+        this.selectACRAMethod();
+        this.selectManualVerifyMethod();
+        this._waitForPageLoading()
     }
 }
 
