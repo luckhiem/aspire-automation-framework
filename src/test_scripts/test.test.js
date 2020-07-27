@@ -19,6 +19,11 @@ describe('Adding People', () => {
         page.Register
             .open()
             .registerUser(user)
+
+        page.MethodSelect
+            .acccessMethodSelectPage()
+            .selectACRAMethod()
+            .selectManualVerifyMethod()
         // browser.url("https://qa-test.customer-frontend.staging.aspireapp.com/sg/kyc-dashboard/identify-detail");
         // browser.pause(3000);
         // $('input[data-cy="register-person-phone"]').addValue(44444444);

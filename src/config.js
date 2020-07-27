@@ -21,7 +21,7 @@ const config = function () {
             BASE_URL: `https://${ENV.domain}/`,
             REGISTER_URL: `https://${ENV.domain}/sg/register`,
             LOGIN_URL: `https://${ENV.domain}/signin`,
-            LOGOUT_URL: `https://${ENV.domain}/signout`,
+            SELECT_METHOD_URL: `https://${ENV.domain}/sg/incorporate-selector`,
             INDEX_URL: `https://${ENV.domain}/engage#insights/overview`,
         },
         user: {

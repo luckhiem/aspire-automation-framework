@@ -1,7 +1,6 @@
 const CONFIG = require('../../config.js');
 const ElementHandler = require('../../common/ElementHandler.js');
 const BrowserHandler = require('../../common/BrowserHandler.js');
-const expect = require('chai').expect;
 
 const PERSON_NAME_TXB = 'input[data-cy="register-person-name"]';
 const EMAIL_TXB = 'input[data-cy="register-person-email"]';
