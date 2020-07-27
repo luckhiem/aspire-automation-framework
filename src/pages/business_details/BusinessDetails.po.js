@@ -104,7 +104,7 @@ class BusinessDetails {
         this.selectBusinessRole(business.role);
         this.selectIndustry(business.industry);
         this.clickSubmitBtn();
-        this._waitForPageLoading;
+        this._waitForPageLoading();
         return this;
     }
 }
