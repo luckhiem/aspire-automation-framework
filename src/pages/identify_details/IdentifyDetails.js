@@ -50,7 +50,6 @@ class IdentifyDetails {
         browser.pause(10000)
         $(TAKE_SELFIE_BTN).click();
         ElementHandler.click(CARD_SUBMIT_BTN);
-        browser.pause(60000)
         return this;
     }
 
