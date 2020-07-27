@@ -1,3 +1,6 @@
+const path = require("path");
+
+const file = path.join(__dirname, './resource/test-stream.y4m')
 exports.config = {
     runner: 'local',
     host: 'localhost',
@@ -16,8 +19,7 @@ exports.config = {
             args: [
                 '--use-fake-ui-for-media-stream',
                 '--use-fake-device-for-media-stream',
-                // '--use-file-for-fake-video-capture="C:\System Development Task\aspire\aspire-automation-framework\resource\face.y4m"',
-                // '--allow-file-access-from-files'
+                `--use-file-for-fake-video-capture=${file}`,
             ],
             prefs: {
                 "profile.default_content_setting_values.media_stream_camera": 1
