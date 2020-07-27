@@ -1,6 +1,7 @@
 const CONFIG = require('../../config.js');
 const ElementHandler = require('../../common/ElementHandler.js');
 const BrowserHandler = require('../../common/BrowserHandler.js');
+const Common = require('../../common/Common.js')
 
 const PERSON_NAME_TXB = 'input[data-cy="register-person-name"]';
 const EMAIL_TXB = 'input[data-cy="register-person-email"]';
@@ -18,16 +19,6 @@ class RegisterPage {
         BrowserHandler.navigate(CONFIG.PATH.REGISTER_URL);
         ElementHandler.verifyURL(CONFIG.PATH.REGISTER_URL);
         return this;
-    }
-
-    _waitForPageLoading() {
-        const LOADING_LOCATOR = ".q-loading-bar";
-        $(LOADING_LOCATOR).waitUntil(function () {
-            return ElementHandler.verifyAttribute(LOADING_LOCATOR, 'aria-hidden', true)
-        }, {
-            timeout: 5000,
-            timeoutMsg: 'expected text to be different after 5s'
-        });
     }
 
     /**
@@ -81,7 +72,7 @@ class RegisterPage {
      * @param {Int} otp //otp generate
      */
     verfiyOTPCode(otp) {
-        this._waitForPageLoading()
+        Common.waitForPageLoading();
         ElementHandler.setValue(OTP_TXB, otp);
         ElementHandler.click(VERIFY_OTP_BTN);
         return this;
@@ -110,6 +101,7 @@ class RegisterPage {
      * @param {User} user
      */
     registerUser(user) {
+        Common.waitForPageLoading();
         this.inputPersonName(user.name);
         this.inputEmail(user.email);
         this.inputPhoneNumber(user.phone);
@@ -118,6 +110,7 @@ class RegisterPage {
         this.clickContinueBtn();
         this.verfiyOTPCode(user.otp);
         this.verifyPageAfterRegisterSuccess();
+        Common.waitForPageLoading();
         return this;
     }
 

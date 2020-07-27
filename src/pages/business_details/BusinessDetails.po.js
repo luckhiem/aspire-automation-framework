@@ -1,6 +1,7 @@
 const CONFIG = require('../../config.js');
 const ElementHandler = require('../../common/ElementHandler');
 const BrowserHandler = require('../../common/BrowserHandler.js');
+const Common = require('../../common/Common.js')
 
 const BUSINESS_DETAIL = '.new-form__view';
 const SUBMIT_BTN = '.aspire-button--cta';
@@ -19,19 +20,7 @@ class BusinessDetails {
         return this;
     }
 
-    _waitForPageLoading() {
-        const LOADING_LOCATOR = ".q-loading-bar";
-        $(LOADING_LOCATOR).waitUntil(function () {
-            return ElementHandler.verifyAttribute(LOADING_LOCATOR, 'aria-hidden', true)
-        }, {
-            timeout: 20000,
-            timeoutMsg: 'expected text to be different after 5s'
-        });
-
-    }
-
     clickSubmitBtn() {
-        this._waitForPageLoading()
         ElementHandler.click(SUBMIT_BTN);
         return this;
     }
@@ -48,7 +37,7 @@ class BusinessDetails {
      * @param {String} type //type of registration registered
      */
     selectRegistrationType(type){
-        this._waitForPageLoading()
+        Common.waitForPageLoading()
         const REGISTRATION_TYPE_ITEM = `//div[@class='q-item__label'][text()="${type}"]`;
         ElementHandler.waitForElementDisplayed(REGISTRATION_TYPE_DRD)
         ElementHandler.click(REGISTRATION_TYPE_DRD);
@@ -68,7 +57,7 @@ class BusinessDetails {
      * @param {String} role //type of registration registered
      */
     selectBusinessRole(role){
-        this._waitForPageLoading()
+        Common.waitForPageLoading()
         const BUSINESS_ROLE_ITEM = `//div[@class='q-item__label'][text()="${role}"]`;
         ElementHandler.waitForElementDisplayed(BUSINESS_ROLE_DRD)
         ElementHandler.click(BUSINESS_ROLE_DRD);
@@ -80,7 +69,7 @@ class BusinessDetails {
      * @param {industry} industry //industry of registration registered
      */
     selectIndustry(industry){
-        this._waitForPageLoading()
+        Common.waitForPageLoading()
         const INDUSTRY_ITEM = `//div[@class='q-item__label'][text()="${industry.type}"]`;
         const SUB_INDUSTRY_ITEM = `//div[@class='q-item__label'][text()="${industry.sub}"]`;
         ElementHandler.waitForElementDisplayed(INDUSTRY_DRD)
@@ -97,6 +86,7 @@ class BusinessDetails {
      */
     addBusinessDetails(business){
         this.acccessBusinessDetailPage();
+        Common.waitForPageLoading()
         this.clickSubmitBtn();
         this.inputBusinessName(business.name);
         this.selectRegistrationType(business.type);
@@ -104,7 +94,7 @@ class BusinessDetails {
         this.selectBusinessRole(business.role);
         this.selectIndustry(business.industry);
         this.clickSubmitBtn();
-        this._waitForPageLoading();
+        Common.waitForPageLoading()
         return this;
     }
 }

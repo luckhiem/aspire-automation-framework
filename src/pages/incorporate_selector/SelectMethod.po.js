@@ -1,6 +1,7 @@
 const CONFIG = require('../../config.js');
 const ElementHandler = require('../../common/ElementHandler');
 const BrowserHandler = require('../../common/BrowserHandler.js');
+const Common = require('../../common/Common.js')
 
 const FORM_SELECT = '.new-form__view';
 const ACRA_METHOD_BTN = '.q-pb-md button';
@@ -15,35 +16,23 @@ class MethodSelect {
         return this;
     }
 
-    _waitForPageLoading() {
-        const LOADING_LOCATOR = ".q-loading-bar";
-        $(LOADING_LOCATOR).waitUntil(function () {
-            return ElementHandler.verifyAttribute(LOADING_LOCATOR, 'aria-hidden', true)
-
-        }, {
-            timeout: 5000,
-            timeoutMsg: 'expected text to be different after 5s'
-        });
-
-    }
-
     selectACRAMethod() {
         ElementHandler.click(ACRA_METHOD_BTN);
         return this;
     }
 
     selectManualVerifyMethod() {
-        this._waitForPageLoading()
+        Common.waitForPageLoading()
         ElementHandler.click(MANUAL_VERIFY_BTN);
         return this;
     }
 
     selectMethod(){
         this.acccessMethodSelectPage();
-        this._waitForPageLoading();
+        Common.waitForPageLoading();
         this.selectACRAMethod();
         this.selectManualVerifyMethod();
-        this._waitForPageLoading()
+        Common.waitForPageLoading()
     }
 }
 

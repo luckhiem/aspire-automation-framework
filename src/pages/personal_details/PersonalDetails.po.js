@@ -1,6 +1,7 @@
 const CONFIG = require('../../config.js');
 const ElementHandler = require('../../common/ElementHandler');
 const BrowserHandler = require('../../common/BrowserHandler.js');
+const Common = require('../../common/Common.js')
 
 const PERSONAL_DETAL = '.new-form__view';
 const SUBMIT_BTN = '.aspire-button--cta';
@@ -19,20 +20,8 @@ class PersonalDetails {
         return this;
     }
 
-    _waitForPageLoading() {
-        const LOADING_LOCATOR = ".q-loading-bar";
-        $(LOADING_LOCATOR).waitUntil(function () {
-            return ElementHandler.verifyAttribute(LOADING_LOCATOR, 'aria-hidden', true)
-
-        }, {
-            timeout: 5000,
-            timeoutMsg: 'expected text to be different after 5s'
-        });
-
-    }
-
     clickSubmitBtn() {
-        this._waitForPageLoading()
+        Common.waitForPageLoading()
         ElementHandler.click(SUBMIT_BTN);
         return this;
     }
@@ -45,7 +34,7 @@ class PersonalDetails {
     }
 
     selectNationality(nation){
-        this._waitForPageLoading()
+        Common.waitForPageLoading()
         const NATION_ITEM = `//div[@class='q-item__label'][text()="${nation}"]`;
         ElementHandler.waitForElementDisplayed(NATION_DRD)
         ElementHandler.click(NATION_DRD);
@@ -71,7 +60,7 @@ class PersonalDetails {
      * @param {Int} otp //otp generate
      */
     verfiyOTPCode(otp) {
-        this._waitForPageLoading()
+        Common.waitForPageLoading()
         ElementHandler.setValue(OTP_TXB, otp);
         ElementHandler.click(VERIFY_OTP_BTN);
         return this;

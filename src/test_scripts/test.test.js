@@ -1,5 +1,4 @@
 const PageFactory = require('../pages/PageFactory');
-const CONFIG = require('../config');
 
 let page = PageFactory;
 
