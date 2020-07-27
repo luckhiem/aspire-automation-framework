@@ -14,7 +14,8 @@ const user = {
     otp: 123456,
     birthDate: "Jul 10, 1995",
     nation: 'China',
-    gender: 'Female'
+    gender: 'Female',
+    purpose: 'Credit Line'
 }
 
 describe('Adding People', () => {

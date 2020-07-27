@@ -11,8 +11,8 @@ const OTP_TXB = 'input[data-cy="digit-input-pin"]';
 const VERIFY_OTP_BTN = 'button[data-cy="verify-otp-submit"]';
 const CONTINUE_BTN = '.aspire-button--cta';
 
-class RegisterPage {
 
+class RegisterPage {
     open() {
         BrowserHandler.maximizeWindow();
         BrowserHandler.navigate(CONFIG.PATH.REGISTER_URL);
@@ -20,11 +20,53 @@ class RegisterPage {
         return this;
     }
 
+    _waitForPageLoading() {
+        const LOADING_LOCATOR = ".q-loading-bar";
+        $(LOADING_LOCATOR).waitUntil(function () {
+            return ElementHandler.verifyAttribute(LOADING_LOCATOR, 'aria-hidden', true)
+        }, {
+            timeout: 5000,
+            timeoutMsg: 'expected text to be different after 5s'
+        });
+    }
+
+    /**
+     * @param {String} name //name of person registered
+     */
+    inputPersonName(name) {
+        ElementHandler.addValue(PERSON_NAME_TXB, name);
+        return this;
+    }
+
+    /**
+     * @param {String} email //email of person registered
+     */
+    inputEmail(email) {
+        ElementHandler.addValue(PERSON_NAME_TXB, email);
+        return this;
+    }
+
+
+    /**
+     * @param {String} email //email of person registered
+     */
+    inputEmail(email) {
+        ElementHandler.addValue(EMAIL_TXB, email);
+        return this;
+    }
+
+    /**
+     * @param {Number} phoneNumber //phoneNumber of person registered
+     */
+    inputPhoneNumber(phoneNumber) {
+        ElementHandler.addValue(PHONE_NUMBER_TXB, phoneNumber);
+        return this;
+    }
 
     /**
      * @param {String} item //item heard about select
      */
-    _selectPersonHeardAbout(item) {
+    selectPersonHeardAbout(item) {
         const HEARD_ABOUT_CHANNEL = `//div[@class='q-item__label'][text()="${item.channel}"]`;
         const HEARD_ABOUT_DETAIL_TXB = 'input[data-cy="register-person-heard-about-details"]';
         ElementHandler.click(HEARD_ABOUT_DRD);
@@ -35,22 +77,10 @@ class RegisterPage {
         return this;
     }
 
-    _waitForPageLoading() {
-        const LOADING_LOCATOR = ".q-loading-bar";
-        $(LOADING_LOCATOR).waitUntil(function () {
-            return ElementHandler.verifyAttribute(LOADING_LOCATOR, 'aria-hidden', true)
-
-        }, {
-            timeout: 5000,
-            timeoutMsg: 'expected text to be different after 5s'
-        });
-
-    }
-
     /**
      * @param {Int} otp //otp generate
      */
-    _verfiyOTPCode(otp) {
+    verfiyOTPCode(otp) {
         this._waitForPageLoading()
         ElementHandler.setValue(OTP_TXB, otp);
         ElementHandler.click(VERIFY_OTP_BTN);
@@ -66,17 +96,27 @@ class RegisterPage {
         return this;
     }
 
+    stickOnPrivacyCheckbox() {
+        ElementHandler.click(PRIVACY_CBX);
+        return this;
+    }
+
+    clickContinueBtn() {
+        ElementHandler.click(CONTINUE_BTN);
+        return this;
+    }
+
     /**
      * @param {User} user
      */
     registerUser(user) {
-        ElementHandler.addValue(PERSON_NAME_TXB, user.name);
-        ElementHandler.addValue(EMAIL_TXB, user.email);
-        ElementHandler.addValue(PHONE_NUMBER_TXB, user.phone);
-        this._selectPersonHeardAbout(user.heard_about)
-        ElementHandler.click(PRIVACY_CBX);
-        ElementHandler.click(CONTINUE_BTN);
-        this._verfiyOTPCode(user.otp);
+        this.inputPersonName(user.name);
+        this.inputEmail(user.email);
+        this.inputPhoneNumber(user.phone);
+        this.selectPersonHeardAbout(user.heard_about)
+        this.stickOnPrivacyCheckbox()
+        this.clickContinueBtn();
+        this.verfiyOTPCode(user.otp);
         this.verifyPageAfterRegisterSuccess();
         return this;
     }
