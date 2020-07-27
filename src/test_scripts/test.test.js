@@ -34,6 +34,7 @@ describe('Adding People', () => {
         page.MethodSelect.selectMethod()
         page.PersonalDetails.addPersonalDetails(user)
         page.BusinessDetails.addBusinessDetails(business)
+        page.IdentifyDetails.addIdentify()
         // browser.url("https://qa-test.customer-frontend.staging.aspireapp.com/sg/kyc-dashboard/identify-detail");
         // browser.pause(3000);
         // $('input[data-cy="register-person-phone"]').addValue(44444444);

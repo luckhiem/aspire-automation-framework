@@ -24,6 +24,7 @@ const config = function () {
             SELECT_METHOD_URL: `https://${ENV.domain}/sg/incorporate-selector`,
             PERSONAL_DETAIL_URL: `https://${ENV.domain}/sg/kyc-dashboard/person-detail`,
             BUSINESS_DETAIL_URL: `https://${ENV.domain}/sg/kyc-dashboard/business-detail`,
+            IDENTIFY_DETAIL_URL: `https://${ENV.domain}/sg/kyc-dashboard/identify-detail`,
         },
         user: {
             admin: new User({ email: ENV.adminstrator.username, password: ENV.adminstrator.password }),
