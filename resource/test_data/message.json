@@ -1,0 +1,8 @@
+{
+    "PHONE_OTP_SUCCESS_TITLE": "Wohoo!",
+    "PHONE_OTP_SUCCESS_DESCRIPTION": "You have successfully verified your phone number. You’re on to a great start!",
+    "EMAIL_OTP_SUCCESS_TITLE": "Hurray!",
+    "EMAIL_OTP_SUCCESS_DESCRIPTION": "You have successfully verified your email.",
+    "IDENTIFY_SUCCESS_TITLE": "We are on it!",
+    "IDENTIFY_SUCCESS_DESCRIPTION": "Please sit back, relax and listen to some Beethoven while our team reviews them. We shall get back to you within 24 hours."
+}

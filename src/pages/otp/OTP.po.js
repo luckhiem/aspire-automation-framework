@@ -1,5 +1,6 @@
 const ElementHandler = require('../../common/ElementHandler');
-const Common = require('../../common/Common.js')
+const Message = require('../../../resource/test_data/message.json')
+const Common = require('../../common/Common.js');
 
 const OTP_TXB = 'input[data-cy="digit-input-pin"]';
 const VERIFY_OTP_BTN = 'button[data-cy="verify-otp-submit"]';
@@ -27,20 +28,16 @@ class OTP {
     }
 
     verifyPhoneOTPSuccess() {
-        const TITLE_TEXT = "Wohoo!";
-        const DESCRIPTION_TEXT = "You have successfully verified your phone number. You’re on to a great start!"
         ElementHandler.waitForElementDisplayed(TITLE_LOCATOR)
-        ElementHandler.verifyText(TITLE_LOCATOR, TITLE_TEXT);
-        ElementHandler.verifyText(DESCRIPTION_LOCATOR, DESCRIPTION_TEXT)
+        ElementHandler.verifyText(TITLE_LOCATOR, Message.PHONE_OTP_SUCCESS_TITLE);
+        ElementHandler.verifyText(DESCRIPTION_LOCATOR, Message.PHONE_OTP_SUCCESS_DESCRIPTION)
         return this;
     }
 
     verifyEmailOTPSuccess() {
-        const TITLE_TEXT = "Hurray!";
-        const DESCRIPTION_TEXT = "You have successfully verified your email."
         ElementHandler.waitForElementDisplayed(TITLE_LOCATOR)
-        ElementHandler.verifyText(TITLE_LOCATOR, TITLE_TEXT);
-        ElementHandler.verifyText(DESCRIPTION_LOCATOR, DESCRIPTION_TEXT)
+        ElementHandler.verifyText(TITLE_LOCATOR, Message.EMAIL_OTP_SUCCESS_TITLE);
+        ElementHandler.verifyText(DESCRIPTION_LOCATOR, Message.EMAIL_OTP_SUCCESS_DESCRIPTION)
         return this;
     }
 

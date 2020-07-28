@@ -1,6 +1,7 @@
 const CONFIG = require('../../config.js');
 const ElementHandler = require('../../common/ElementHandler');
 const BrowserHandler = require('../../common/BrowserHandler.js');
+const Message = require('../../../resource/test_data/message.json');
 const Common = require('../../common/Common.js');
 const path = require('path');
 
@@ -68,11 +69,9 @@ class IdentifyDetails {
     }
 
     verifyPageAfterAddIdentifySuccess() {
-        const TITLE_TEXT = "We are on it!";
-        const DESCRIPTION_TEXT = "Please sit back, relax and listen to some Beethoven while our team reviews them. We shall get back to you within 24 hours."
         ElementHandler.waitForElementDisplayed(TITLE_LOCATOR)
-        ElementHandler.verifyText(TITLE_LOCATOR, TITLE_TEXT);
-        ElementHandler.verifyText(DESCRIPTION_LOCATOR, DESCRIPTION_TEXT);
+        ElementHandler.verifyText(TITLE_LOCATOR, Message.IDENTIFY_SUCCESS_TITLE);
+        ElementHandler.verifyText(DESCRIPTION_LOCATOR, Message.IDENTIFY_SUCCESS_DESCRIPTION);
         return this;
     }
 
