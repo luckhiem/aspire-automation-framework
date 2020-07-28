@@ -12,7 +12,7 @@ class OTP {
     /**
      * @param {Int} otp //otp generate
      */
-    verfiyOTPCode(otp) {
+    verifyOTPCode(otp) {
         Common.waitForPageLoading()
         ElementHandler.setValue(OTP_TXB, otp);
         ElementHandler.click(VERIFY_OTP_BTN);
@@ -22,7 +22,7 @@ class OTP {
     /**
     * @param {Int} message //message recipient
     */
-    verfiyOTPMessageRecipient(message) {
+    verifyOTPMessageRecipient(message) {
         ElementHandler.verifyText(MESSAGE_RECIPIENT_LOCATOR, message.toLowerCase())
         return this;
     }
@@ -45,7 +45,7 @@ class OTP {
      * @param {User} user
      */
     verifyPhoneOTP(user) {
-        this.verfiyOTPCode(user.otp);
+        this.verifyOTPCode(user.otp);
         this.verifyPhoneOTPSuccess();
         return this;
     }
@@ -55,8 +55,8 @@ class OTP {
      * @param {User} user
      */
     verifyEmailOTP(user) {
-        this.verfiyOTPMessageRecipient(user.email)
-        this.verfiyOTPCode(user.otp);
+        this.verifyOTPMessageRecipient(user.email)
+        this.verifyOTPCode(user.otp);
         this.verifyEmailOTPSuccess();
         return this;
     }

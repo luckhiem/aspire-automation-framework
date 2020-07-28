@@ -13,7 +13,7 @@ const INDUSTRY_DRD = 'div[data-cy="register-business-industry"]';
 const SUB_INDUSTRY_DRD = 'div[data-cy="register-business-sub-industry"]';
 
 class BusinessDetails {
-    acccessBusinessDetailPage() {
+    accessBusinessDetailPage() {
         BrowserHandler.navigate(CONFIG.PATH.BUSINESS_DETAIL_URL);
         ElementHandler.verifyURL(CONFIG.PATH.BUSINESS_DETAIL_URL);
         ElementHandler.waitForElementDisplayed(BUSINESS_DETAIL)
@@ -81,7 +81,7 @@ class BusinessDetails {
      * @param {Business} business
      */
     addBusinessDetails(business){
-        this.acccessBusinessDetailPage();
+        this.accessBusinessDetailPage();
         Common.waitForPageLoading()
         this.clickSubmitBtn();
         this.inputBusinessName(business.name);

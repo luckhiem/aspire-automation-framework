@@ -21,7 +21,7 @@ const TITLE_LOCATOR = "div.q-mb-md";
 const DESCRIPTION_LOCATOR = "p.q-mb-xl";
 
 class IdentifyDetails {
-    acccessIdentifyDetailPage() {
+    accessIdentifyDetailPage() {
         BrowserHandler.navigate(CONFIG.PATH.IDENTIFY_DETAIL_URL);
         ElementHandler.verifyURL(CONFIG.PATH.IDENTIFY_DETAIL_URL);
         ElementHandler.waitForElementDisplayed(IDENTIFY_DETAIL);
@@ -79,7 +79,7 @@ class IdentifyDetails {
      * @param {User} user
      */
     addIdentify(user) {
-        this.acccessIdentifyDetailPage();
+        this.accessIdentifyDetailPage();
         this.clickSubmitBtn();
         this.beginVerification();
         this.verifyIdentifyCard();

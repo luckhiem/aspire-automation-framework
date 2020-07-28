@@ -3,18 +3,18 @@ const ElementHandler = require('../../common/ElementHandler');
 const BrowserHandler = require('../../common/BrowserHandler.js');
 const Common = require('../../common/Common.js')
 
-const PERSONAL_DETAL = '.new-form__view';
+const PERSONAL_DETAIL = '.new-form__view';
 const SUBMIT_BTN = '.aspire-button--cta';
-const BIRTHDATE_SELECT = "input[placeholder='Set your date of birth']";
+const BIRTHDAY_SELECT = "input[placeholder='Set your date of birth']";
 const NATION_DRD = "div[url='countries/all']";
 const GENDER_DRD = "div[data-cy='kyc-gender']";
 const PURPOSE_DRD = "div[data-cy='person-edit-purpose']";
 
 class PersonalDetails {
-    acccessPersonalDetailPage() {
+    accessPersonalDetailPage() {
         BrowserHandler.navigate(CONFIG.PATH.PERSONAL_DETAIL_URL);
         ElementHandler.verifyURL(CONFIG.PATH.PERSONAL_DETAIL_URL);
-        ElementHandler.waitForElementDisplayed(PERSONAL_DETAL)
+        ElementHandler.waitForElementDisplayed(PERSONAL_DETAIL)
         return this;
     }
 
@@ -27,7 +27,7 @@ class PersonalDetails {
     selectBirthDay(){
         Common.waitForPageLoading();
         const DATE_SELECT = "//div[contains(@class, 'q-date__calendar-item')]//span[text() = 20]";
-        ElementHandler.click(BIRTHDATE_SELECT);
+        ElementHandler.click(BIRTHDAY_SELECT);
         ElementHandler.click(DATE_SELECT);
         return this;
     }
@@ -68,7 +68,7 @@ class PersonalDetails {
      * @param {User} user
      */
     addPersonalDetails(user){
-        this.acccessPersonalDetailPage()
+        this.accessPersonalDetailPage()
         this.clickSubmitBtn();
         this.selectBirthDay();
         this.selectNationality(user.nation);
