@@ -63,8 +63,8 @@ class RegisterPage {
         const HEARD_ABOUT_DETAIL_TXB = 'input[data-cy="register-person-heard-about-details"]';
         ElementHandler.click(HEARD_ABOUT_DRD);
         ElementHandler.click(HEARD_ABOUT_CHANNEL);
-        if (item.detail !== null || item.detail !== undefined) {
-            ElementHandler.addValue(HEARD_ABOUT_DETAIL_TXB, item.detail);
+        if (item.referenceCode !== null || item.referenceCode !== undefined) {
+            ElementHandler.addValue(HEARD_ABOUT_DETAIL_TXB, item.referenceCode);
         }
         return this;
     }
