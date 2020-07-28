@@ -1,18 +1,16 @@
-const Register = require('./auth/Register.po');
-const OTP = require('./otp/OTP.po');
-const MethodSelect = require('./incorporate_selector/SelectMethod.po');
-const PersonalDetails = require('./personal_details/PersonalDetails.po');
-const BusinessDetails = require('./business_details/BusinessDetails.po');
-const IdentifyDetails = require('./identify_details/IdentifyDetails');
+import Register from './auth/Register.po';
+import OTP from './otp/OTP.po';
+import MethodSelect from './incorporate_selector/SelectMethod.po';
+import PersonalDetails from './personal_details/PersonalDetails.po';
+import BusinessDetails from './business_details/BusinessDetails.po';
+import IdentifyDetails from './identify_details/IdentifyDetails';
 
-const pageFactory = function () {
-    return {
-        Register: Register,
-        MethodSelect: MethodSelect,
-        PersonalDetails: PersonalDetails,
-        BusinessDetails: BusinessDetails,
-        IdentifyDetails: IdentifyDetails,
-        OTP: OTP,
-    };
+const pageFactory = {
+    Register,
+    MethodSelect,
+    PersonalDetails,
+    BusinessDetails,
+    IdentifyDetails,
+    OTP,
 };
-module.exports = pageFactory();
+export default pageFactory;

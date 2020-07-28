@@ -1,7 +1,7 @@
-const CONFIG = require('../../config.js');
-const ElementHandler = require('../../common/ElementHandler');
-const BrowserHandler = require('../../common/BrowserHandler.js');
-const Common = require('../../common/Common.js');
+import Common from '../../common/Common';
+import CONFIG from '../../config';
+import ElementHandler from '../../common/ElementHandler';
+import BrowserHandler from '../../common/BrowserHandler';
 
 const FORM_SELECT = '.new-form__view';
 const ACRA_METHOD_BTN = '.q-pb-md button';
@@ -35,4 +35,4 @@ class MethodSelect {
     }
 }
 
-module.exports = new MethodSelect();
+export default new MethodSelect();

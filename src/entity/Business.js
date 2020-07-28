@@ -18,7 +18,9 @@ class Business {
      * @param {string} role
      * @return {Business}
      */
-    constructor({ name, type, uen, role } = {}) {
+    constructor({
+        name, type, uen, role,
+    } = {}) {
         this.name = name;
         this.type = type;
         this.uen = uen;

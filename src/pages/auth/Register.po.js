@@ -1,7 +1,7 @@
-const CONFIG = require('../../config.js');
-const ElementHandler = require('../../common/ElementHandler.js');
-const BrowserHandler = require('../../common/BrowserHandler.js');
-const Common = require('../../common/Common.js');
+import Common from '../../common/Common';
+import CONFIG from '../../config';
+import ElementHandler from '../../common/ElementHandler';
+import BrowserHandler from '../../common/BrowserHandler';
 
 const PERSON_NAME_TXB = 'input[data-cy="register-person-name"]';
 const EMAIL_TXB = 'input[data-cy="register-person-email"]';
@@ -48,8 +48,7 @@ class RegisterPage {
      */
     selectPersonHeardAbout(item) {
         const HEARD_ABOUT_CHANNEL = `//div[@class='q-item__label'][text()="${item.channel}"]`;
-        const HEARD_ABOUT_DETAIL_TXB =
-            'input[data-cy="register-person-heard-about-details"]';
+        const HEARD_ABOUT_DETAIL_TXB = 'input[data-cy="register-person-heard-about-details"]';
         Common.waitForPageLoading();
         ElementHandler.click(HEARD_ABOUT_DRD);
         ElementHandler.click(HEARD_ABOUT_CHANNEL);
@@ -93,4 +92,4 @@ class RegisterPage {
     }
 }
 
-module.exports = new RegisterPage();
+export default new RegisterPage();

@@ -1,6 +1,6 @@
-const ElementHandler = require('../../common/ElementHandler');
-const Message = require('../../../resource/test_data/message.json');
-const Common = require('../../common/Common.js');
+import Common from '../../common/Common';
+import ElementHandler from '../../common/ElementHandler';
+import Message from '../../../resource/test_data/message.json';
 
 const OTP_TXB = 'input[data-cy="digit-input-pin"]';
 const VERIFY_OTP_BTN = 'button[data-cy="verify-otp-submit"]';
@@ -25,7 +25,7 @@ class OTP {
     verifyOTPMessageRecipient(message) {
         ElementHandler.verifyText(
             MESSAGE_RECIPIENT_LOCATOR,
-            message.toLowerCase()
+            message.toLowerCase(),
         );
         return this;
     }
@@ -34,11 +34,11 @@ class OTP {
         ElementHandler.waitForElementDisplayed(TITLE_LOCATOR);
         ElementHandler.verifyText(
             TITLE_LOCATOR,
-            Message.PHONE_OTP_SUCCESS_TITLE
+            Message.PHONE_OTP_SUCCESS_TITLE,
         );
         ElementHandler.verifyText(
             DESCRIPTION_LOCATOR,
-            Message.PHONE_OTP_SUCCESS_DESCRIPTION
+            Message.PHONE_OTP_SUCCESS_DESCRIPTION,
         );
         return this;
     }
@@ -47,11 +47,11 @@ class OTP {
         ElementHandler.waitForElementDisplayed(TITLE_LOCATOR);
         ElementHandler.verifyText(
             TITLE_LOCATOR,
-            Message.EMAIL_OTP_SUCCESS_TITLE
+            Message.EMAIL_OTP_SUCCESS_TITLE,
         );
         ElementHandler.verifyText(
             DESCRIPTION_LOCATOR,
-            Message.EMAIL_OTP_SUCCESS_DESCRIPTION
+            Message.EMAIL_OTP_SUCCESS_DESCRIPTION,
         );
         return this;
     }
@@ -76,4 +76,4 @@ class OTP {
     }
 }
 
-module.exports = new OTP();
+export default new OTP();

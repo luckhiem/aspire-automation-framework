@@ -4,7 +4,7 @@ class Utils {
     }
 
     generateUEN() {
-        return Math.floor(100000000 + Math.random() * 900000000) + 'M';
+        return `${Math.floor(100000000 + Math.random() * 900000000)}M`;
     }
 }
 

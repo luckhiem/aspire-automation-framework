@@ -1,4 +1,4 @@
-const expect = require('chai').expect;
+import { expect } from 'chai';
 
 const TIMEOUT = 30000;
 
@@ -33,7 +33,7 @@ class ElementHandler {
     verifyElementExisting(locator) {
         expect(
             $(locator).isExisting(),
-            'Element ' + locator + ' does not exist'
+            `Element ${locator} does not exist`,
         ).to.be.true;
         return this;
     }
@@ -42,7 +42,7 @@ class ElementHandler {
      * @param {string} locator    Element for verify
      */
     verifyElementNotExisting(locator) {
-        expect($(locator).isExisting(), 'Element ' + locator + ' does exist').to
+        expect($(locator).isExisting(), `Element ${locator} does exist`).to
             .be.false;
         return this;
     }
@@ -53,7 +53,7 @@ class ElementHandler {
     verifyElementDisplayed(locator) {
         expect(
             $(locator).isDisplayed(),
-            'Element ' + locator + ' is not displayed'
+            `Element ${locator} is not displayed`,
         ).to.be.true;
         return this;
     }
@@ -62,7 +62,7 @@ class ElementHandler {
      * @param {string} locator    Element for verify
      */
     verifyElementNotDisplayed(locator) {
-        expect($(locator).isDisplayed(), 'Element ' + locator + ' is displayed')
+        expect($(locator).isDisplayed(), `Element ${locator} is displayed`)
             .to.be.false;
         return this;
     }
@@ -71,7 +71,7 @@ class ElementHandler {
      * @param {string} locator    Element for verify
      */
     verifyElementEnabled(locator) {
-        expect($(locator).isEnabled(), 'Element ' + locator + ' is not enabled')
+        expect($(locator).isEnabled(), `Element ${locator} is not enabled`)
             .to.be.true;
         return this;
     }
@@ -82,7 +82,7 @@ class ElementHandler {
     verifyElementDisabled(locator) {
         expect(
             $(locator).isEnabled(),
-            'Element ' + locator + ' is not disabled'
+            `Element ${locator} is not disabled`,
         ).to.be.false;
         return this;
     }
@@ -133,11 +133,9 @@ class ElementHandler {
      */
     verifyTitle(title) {
         browser.waitUntil(
-            () => {
-                return browser.getTitle() === title;
-            },
+            () => browser.getTitle() === title,
             30000,
-            `${title} is not correct`
+            `${title} is not correct`,
         );
         return this;
     }
@@ -147,11 +145,9 @@ class ElementHandler {
      */
     verifyURL(url) {
         browser.waitUntil(
-            () => {
-                return browser.getUrl() === url;
-            },
+            () => browser.getUrl() === url,
             TIMEOUT,
-            `${url} is not correct`
+            `${url} is not correct`,
         );
         return this;
     }
@@ -187,4 +183,4 @@ class ElementHandler {
     }
 }
 
-module.exports = new ElementHandler();
+export default new ElementHandler();

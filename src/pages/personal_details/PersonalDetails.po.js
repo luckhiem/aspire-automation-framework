@@ -1,7 +1,7 @@
-const CONFIG = require('../../config.js');
-const ElementHandler = require('../../common/ElementHandler');
-const BrowserHandler = require('../../common/BrowserHandler.js');
-const Common = require('../../common/Common.js');
+import Common from '../../common/Common';
+import CONFIG from '../../config';
+import ElementHandler from '../../common/ElementHandler';
+import BrowserHandler from '../../common/BrowserHandler';
 
 const PERSONAL_DETAIL = '.new-form__view';
 const SUBMIT_BTN = '.aspire-button--cta';
@@ -26,8 +26,7 @@ class PersonalDetails {
 
     selectBirthDay() {
         Common.waitForPageLoading();
-        const DATE_SELECT =
-            "//div[contains(@class, 'q-date__calendar-item')]//span[text() = 20]";
+        const DATE_SELECT = "//div[contains(@class, 'q-date__calendar-item')]//span[text() = 20]";
         ElementHandler.click(BIRTHDAY_SELECT);
         ElementHandler.click(DATE_SELECT);
         return this;
@@ -80,4 +79,4 @@ class PersonalDetails {
     }
 }
 
-module.exports = new PersonalDetails();
+export default new PersonalDetails();

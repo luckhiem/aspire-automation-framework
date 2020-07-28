@@ -1,4 +1,4 @@
-const Business = require('./Business');
+import Business from './Business';
 
 class ChannelHeard {
     /**

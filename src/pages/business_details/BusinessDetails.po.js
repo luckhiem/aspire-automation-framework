@@ -1,13 +1,12 @@
-const CONFIG = require('../../config.js');
-const ElementHandler = require('../../common/ElementHandler');
-const BrowserHandler = require('../../common/BrowserHandler.js');
-const Common = require('../../common/Common.js');
+import Common from '../../common/Common';
+import CONFIG from '../../config';
+import ElementHandler from '../../common/ElementHandler';
+import BrowserHandler from '../../common/BrowserHandler';
 
 const BUSINESS_DETAIL = '.new-form__view';
 const SUBMIT_BTN = '.aspire-button--cta';
 const BUSINESS_NAME_TXB = 'input[data-cy="register-business-name"]';
-const REGISTRATION_TYPE_DRD =
-    'div[data-cy="register-business-registration-type"]';
+const REGISTRATION_TYPE_DRD = 'div[data-cy="register-business-registration-type"]';
 const BUSINESS_ROLE_DRD = 'div[data-cy="register-business-registration-role"]';
 const UEN_TXB = 'input[data-cy="register-business-registration-numer"]';
 const INDUSTRY_DRD = 'div[data-cy="register-business-industry"]';
@@ -96,4 +95,4 @@ class BusinessDetails {
     }
 }
 
-module.exports = new BusinessDetails();
+export default new BusinessDetails();

@@ -1,5 +1,5 @@
-const PageFactory = require('../pages/PageFactory');
-const TestData = require('../../resource/test_data/user_data');
+import PageFactory from '../pages/PageFactory';
+import TestData from '../../resource/test_data/user_data';
 
 const page = PageFactory;
 

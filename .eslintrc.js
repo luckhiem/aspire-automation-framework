@@ -13,12 +13,17 @@ module.exports = {
         sprintf: true,
         _view: true,
     },
-    extends: ['@cybozu/eslint-config/presets/prettier'],
+    extends: ['airbnb-base'],
     rules: {
+        'import/no-extraneous-dependencies': 'off',
+        'max-classes-per-file': 'off',
+        'no-plusplus': 'off',
+        indent: ['error', 4],
         'no-shadow': 'off',
         'consistent-return': 'off',
         'array-callback-return': 'off',
         'no-unused-expressions': 'off',
+        'class-methods-use-this': 'off',
     },
     parser: 'babel-eslint',
 };

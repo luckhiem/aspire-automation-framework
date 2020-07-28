@@ -26,4 +26,4 @@ class BrowserHandling {
         }
     }
 }
-module.exports = new BrowserHandling();
+export default new BrowserHandling();
