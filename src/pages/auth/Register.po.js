@@ -1,7 +1,7 @@
 const CONFIG = require('../../config.js');
 const ElementHandler = require('../../common/ElementHandler.js');
 const BrowserHandler = require('../../common/BrowserHandler.js');
-const Common = require('../../common/Common.js')
+const Common = require('../../common/Common.js');
 
 const PERSON_NAME_TXB = 'input[data-cy="register-person-name"]';
 const EMAIL_TXB = 'input[data-cy="register-person-email"]';
@@ -31,15 +31,6 @@ class RegisterPage {
      * @param {String} email //email of person registered
      */
     inputEmail(email) {
-        ElementHandler.addValue(PERSON_NAME_TXB, email);
-        return this;
-    }
-
-
-    /**
-     * @param {String} email //email of person registered
-     */
-    inputEmail(email) {
         ElementHandler.addValue(EMAIL_TXB, email);
         return this;
     }
@@ -57,7 +48,8 @@ class RegisterPage {
      */
     selectPersonHeardAbout(item) {
         const HEARD_ABOUT_CHANNEL = `//div[@class='q-item__label'][text()="${item.channel}"]`;
-        const HEARD_ABOUT_DETAIL_TXB = 'input[data-cy="register-person-heard-about-details"]';
+        const HEARD_ABOUT_DETAIL_TXB =
+            'input[data-cy="register-person-heard-about-details"]';
         Common.waitForPageLoading();
         ElementHandler.click(HEARD_ABOUT_DRD);
         ElementHandler.click(HEARD_ABOUT_CHANNEL);
@@ -78,10 +70,10 @@ class RegisterPage {
     }
 
     verifyAccountExists() {
-        const ACCOUNT_EXISTS_LOCATOR = ".q-card .text-subtitle1"
-        const ErrorMessage = "Account exists, try login instead!";
+        const ACCOUNT_EXISTS_LOCATOR = '.q-card .text-subtitle1';
+        const ErrorMessage = 'Account exists, try login instead!';
         ElementHandler.waitForElementDisplayed(ACCOUNT_EXISTS_LOCATOR);
-        ElementHandler.verifyText(ACCOUNT_EXISTS_LOCATOR, ErrorMessage)
+        ElementHandler.verifyText(ACCOUNT_EXISTS_LOCATOR, ErrorMessage);
         return this;
     }
 
@@ -93,13 +85,12 @@ class RegisterPage {
         this.inputPersonName(user.name);
         this.inputEmail(user.email);
         this.inputPhoneNumber(user.phone);
-        this.selectPersonHeardAbout(user.heard_about)
-        this.stickOnPrivacyCheckbox()
+        this.selectPersonHeardAbout(user.heard_about);
+        this.stickOnPrivacyCheckbox();
         this.clickContinueBtn();
         Common.waitForPageLoading();
         return this;
     }
-
 }
 
 module.exports = new RegisterPage();

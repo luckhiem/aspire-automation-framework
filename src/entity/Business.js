@@ -18,16 +18,12 @@ class Business {
      * @param {string} role
      * @return {Business}
      */
-    constructor({ name,
-        type,
-        uen,
-        role,
-    } = {}) {
+    constructor({ name, type, uen, role } = {}) {
         this.name = name;
         this.type = type;
         this.uen = uen;
         this.role = role;
-        this.industry = new Industry()
+        this.industry = new Industry();
     }
 }
 

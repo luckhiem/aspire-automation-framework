@@ -1,0 +1,4 @@
+node_modules
+results
+*.config.js
+*.conf.js

@@ -1,7 +1,7 @@
 const CONFIG = require('../../config.js');
 const ElementHandler = require('../../common/ElementHandler');
 const BrowserHandler = require('../../common/BrowserHandler.js');
-const Common = require('../../common/Common.js')
+const Common = require('../../common/Common.js');
 
 const FORM_SELECT = '.new-form__view';
 const ACRA_METHOD_BTN = '.q-pb-md button';
@@ -11,7 +11,7 @@ class MethodSelect {
     accessMethodSelectPage() {
         BrowserHandler.navigate(CONFIG.PATH.SELECT_METHOD_URL);
         ElementHandler.verifyURL(CONFIG.PATH.SELECT_METHOD_URL);
-        ElementHandler.waitForElementDisplayed(FORM_SELECT)
+        ElementHandler.waitForElementDisplayed(FORM_SELECT);
         return this;
     }
 
@@ -21,17 +21,17 @@ class MethodSelect {
     }
 
     selectManualVerifyMethod() {
-        Common.waitForPageLoading()
+        Common.waitForPageLoading();
         ElementHandler.click(MANUAL_VERIFY_BTN);
         return this;
     }
 
-    selectMethod(){
+    selectMethod() {
         this.accessMethodSelectPage();
         Common.waitForPageLoading();
         this.selectACRAMethod();
         this.selectManualVerifyMethod();
-        Common.waitForPageLoading()
+        Common.waitForPageLoading();
     }
 }
 

@@ -26,7 +26,8 @@ class User {
      * @param {string} NRICNumber
      * @return {User}
      */
-    constructor({ name,
+    constructor({
+        name,
         email,
         phone,
         otp,
@@ -34,7 +35,7 @@ class User {
         nation,
         gender,
         purpose,
-        NRICNumber
+        NRICNumber,
     } = {}) {
         this.name = name;
         this.email = email;
