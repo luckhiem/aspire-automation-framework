@@ -27,6 +27,7 @@ class PersonalDetails {
     }
 
     selectBirthDay(date){
+        Common.waitForPageLoading()
         const DATE_SELECT = "//div[contains(@class, 'q-date__calendar-item')]//span[text() = 20]"
         ElementHandler.click(BIRTHDATE_SELECT);
         ElementHandler.click(DATE_SELECT);
@@ -38,6 +39,7 @@ class PersonalDetails {
         const NATION_ITEM = `//div[@class='q-item__label'][text()="${nation}"]`;
         ElementHandler.waitForElementDisplayed(NATION_DRD)
         ElementHandler.click(NATION_DRD);
+        ElementHandler.waitForElementDisplayed(NATION_ITEM)
         ElementHandler.click(NATION_ITEM);
         return this;
     }
