@@ -40,7 +40,9 @@ exports.config = {
         compilers: ['js:@babel/register'],
         timeout: 900000
     },
-    reporters: [['allure', {
+    reporters: [
+        'spec', 
+        ['allure', {
         outputDir: 'allure-results',
         disableWebdriverStepsReporting: true,
         disableWebdriverScreenshotsReporting: true,

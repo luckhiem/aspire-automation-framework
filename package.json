@@ -25,9 +25,10 @@
     "faker": "^4.1.0"
   },
   "scripts": {
-    "test": "wdio wdio.conf.js",
+    "test": "wdio test-web.conf.js",
+    "test-ci": "wdio test-ci.conf.js",
     "generate-reports": "allure generate allure-results --clean && allure open"
   },
-  "author": "",
+  "author": "KhiemLuc",
   "license": "ISC"
 }
