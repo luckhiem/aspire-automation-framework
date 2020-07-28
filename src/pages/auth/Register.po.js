@@ -58,6 +58,7 @@ class RegisterPage {
     selectPersonHeardAbout(item) {
         const HEARD_ABOUT_CHANNEL = `//div[@class='q-item__label'][text()="${item.channel}"]`;
         const HEARD_ABOUT_DETAIL_TXB = 'input[data-cy="register-person-heard-about-details"]';
+        Common.waitForPageLoading();
         ElementHandler.click(HEARD_ABOUT_DRD);
         ElementHandler.click(HEARD_ABOUT_CHANNEL);
         if (item.referenceCode !== null || item.referenceCode !== undefined) {

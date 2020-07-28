@@ -27,9 +27,7 @@ class PersonalDetails {
     selectBirthDay(){
         Common.waitForPageLoading();
         const DATE_SELECT = "//div[contains(@class, 'q-date__calendar-item')]//span[text() = 20]";
-        ElementHandler.waitForElementDisplayed(BIRTHDATE_SELECT);
         ElementHandler.click(BIRTHDATE_SELECT);
-        ElementHandler.waitForElementDisplayed(DATE_SELECT)
         ElementHandler.click(DATE_SELECT);
         return this;
     }
@@ -37,9 +35,7 @@ class PersonalDetails {
     selectNationality(nation){
         Common.waitForPageLoading()
         const NATION_ITEM = `//div[@class='q-item__label'][text()="${nation}"]`;
-        ElementHandler.waitForElementDisplayed(NATION_DRD)
         ElementHandler.click(NATION_DRD);
-        ElementHandler.waitForElementDisplayed(NATION_ITEM)
         ElementHandler.click(NATION_ITEM);
         return this;
     }

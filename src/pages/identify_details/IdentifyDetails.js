@@ -28,13 +28,11 @@ class IdentifyDetails {
     }
 
     clickSubmitBtn() {
-        ElementHandler.waitForElementDisplayed(CONTINUE_BTN)
         ElementHandler.click(CONTINUE_BTN);
         return this;
     }
 
     beginVerification() {
-        ElementHandler.waitForElementDisplayed(BEGIN_BTN)
         ElementHandler.click(BEGIN_BTN);
         return this;
     }

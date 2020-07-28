@@ -39,7 +39,6 @@ class BusinessDetails {
     selectRegistrationType(type){
         Common.waitForPageLoading()
         const REGISTRATION_TYPE_ITEM = `//div[@class='q-item__label'][text()="${type}"]`;
-        ElementHandler.waitForElementDisplayed(REGISTRATION_TYPE_DRD)
         ElementHandler.click(REGISTRATION_TYPE_DRD);
         ElementHandler.click(REGISTRATION_TYPE_ITEM);
         return this;
@@ -59,9 +58,7 @@ class BusinessDetails {
     selectBusinessRole(role){
         Common.waitForPageLoading()
         const BUSINESS_ROLE_ITEM = `//div[@class='q-item__label'][text()="${role}"]`;
-        ElementHandler.waitForElementDisplayed(BUSINESS_ROLE_DRD)
         ElementHandler.click(BUSINESS_ROLE_DRD);
-        ElementHandler.waitForElementDisplayed(BUSINESS_ROLE_ITEM)
         ElementHandler.click(BUSINESS_ROLE_ITEM);
         return this;
     }
@@ -73,10 +70,8 @@ class BusinessDetails {
         Common.waitForPageLoading()
         const INDUSTRY_ITEM = `//div[@class='q-item__label'][text()="${industry.type}"]`;
         const SUB_INDUSTRY_ITEM = `//div[@class='q-item__label'][text()="${industry.sub}"]`;
-        ElementHandler.waitForElementDisplayed(INDUSTRY_DRD)
         ElementHandler.click(INDUSTRY_DRD);
         ElementHandler.click(INDUSTRY_ITEM);
-        ElementHandler.waitForElementDisplayed(SUB_INDUSTRY_DRD)
         ElementHandler.click(SUB_INDUSTRY_DRD);
         ElementHandler.click(SUB_INDUSTRY_ITEM);
         return this;

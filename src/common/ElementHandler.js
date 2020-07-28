@@ -160,6 +160,7 @@ class ElementHandler {
     * @param {string} locator    Element for verify
     */
     click(locator) {
+        this.waitForElementDisplayed(locator)
         this.waitForElementClickable(locator);
         $(locator).click();
         return this;
