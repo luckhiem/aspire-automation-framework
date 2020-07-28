@@ -12,6 +12,7 @@ const CONTINUE_BTN = '.aspire-button--cta';
 
 class RegisterPage {
     open() {
+        browser.deleteCookies();
         BrowserHandler.maximizeWindow();
         BrowserHandler.navigate(CONFIG.PATH.REGISTER_URL);
         ElementHandler.verifyURL(CONFIG.PATH.REGISTER_URL);
@@ -72,6 +73,14 @@ class RegisterPage {
 
     clickContinueBtn() {
         ElementHandler.click(CONTINUE_BTN);
+        return this;
+    }
+
+    verifyAccountExists() {
+        const ACCOUNT_EXISTS_LOCATOR = ".q-card .text-subtitle1"
+        const ErrorMessage = "Account exists, try login instead!";
+        ElementHandler.waitForElementDisplayed(ACCOUNT_EXISTS_LOCATOR);
+        ElementHandler.verifyText(ACCOUNT_EXISTS_LOCATOR, ErrorMessage)
         return this;
     }
 

@@ -1,11 +1,11 @@
 const path = require("path");
 
-const file = path.join(__dirname, './resource/test-stream.y4m')
+const file = path.join(__dirname, './resource/test-stream.y4m');
 exports.config = {
     runner: 'local',
     host: 'localhost',
     specs: [
-        './src/test_scripts/addUser.test.js',
+        './src/test_scripts/*.test.js',
     ],
     services: ['selenium-standalone'],
     exclude: [],
