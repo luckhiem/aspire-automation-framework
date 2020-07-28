@@ -10,7 +10,7 @@ const HEARD_ABOUT_DRD = 'div[data-cy="register-person-heard-about"]';
 const PRIVACY_CBX = 'div[data-cy="register-person-privacy"]';
 const CONTINUE_BTN = '.aspire-button--cta';
 
-class RegisterPage {
+class Register {
     open() {
         browser.deleteCookies();
         BrowserHandler.maximizeWindow();
@@ -92,4 +92,4 @@ class RegisterPage {
     }
 }
 
-export default new RegisterPage();
+export default new Register();
