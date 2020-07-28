@@ -1,0 +1,28 @@
+name: Automation Test
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  automation_test:
+    name: Run automation test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: Install chrome
+      run: |
+        sudo apt-get update 
+        sudo apt-get install google-chrome-stable 
+    - name: Install package
+      run: |
+        npm install
+    - name: Run test
+      run: |
+        npm run test-ci
+      env:
+        CI: true
