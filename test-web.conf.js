@@ -5,7 +5,7 @@ exports.config = {
     runner: 'local',
     host: 'localhost',
     specs: [
-        './src/test_scripts/test.test.js',
+        './src/test_scripts/addUser.test.js',
     ],
     services: ['selenium-standalone'],
     exclude: [],

@@ -3,8 +3,8 @@ const TestData = require('../../resource/test_data/user_data');
 
 let page = PageFactory;
 
-describe('Adding People', () => {
-    it('Adding People', () => {
+describe('Add New User', () => {
+    it('Verify can add new user sucessfully', () => {
         page.Register.open().registerUser(TestData.user1)
         page.MethodSelect.selectMethod()
         page.PersonalDetails.addPersonalDetails(TestData.user1)
