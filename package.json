@@ -22,6 +22,7 @@
     "@wdio/spec-reporter": "^5.23.0",
     "@wdio/sync": "^5.7.0",
     "allure-commandline": "^2.9.0",
+    "babel-eslint": "^10.1.0",
     "chai": "^4.2.0",
     "eslint": "^7.5.0",
     "faker": "^4.1.0",
