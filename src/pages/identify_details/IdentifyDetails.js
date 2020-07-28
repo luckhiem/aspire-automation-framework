@@ -38,7 +38,7 @@ class IdentifyDetails {
         return this;
     }
 
-    verifyIdentifyCard(url) {
+    verifyIdentifyCard() {
         Common.waitForPageLoading();
         ElementHandler.click(IDENTIFY_CARD_BTN);
         $(IDENTIFY_CARD_UPLOAD).addValue(filePath);
@@ -51,7 +51,7 @@ class IdentifyDetails {
 
     takeSelfie() {
         ElementHandler.click(CARD_SUBMIT_BTN);
-        browser.pause(10000)
+        browser.pause(5000)
         $(TAKE_SELFIE_BTN).click();
         ElementHandler.click(CARD_SUBMIT_BTN);
         Common.waitForPageLoading();

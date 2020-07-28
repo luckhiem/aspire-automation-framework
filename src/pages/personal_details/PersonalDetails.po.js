@@ -9,10 +9,6 @@ const BIRTHDATE_SELECT = "input[placeholder='Set your date of birth']";
 const NATION_DRD = "div[url='countries/all']";
 const GENDER_DRD = "div[data-cy='kyc-gender']";
 const PURPOSE_DRD = "div[data-cy='person-edit-purpose']";
-const OTP_TXB = 'input[data-cy="digit-input-pin"]';
-const VERIFY_OTP_BTN = 'button[data-cy="verify-otp-submit"]';
-const TITLE_LOCATOR = "div.q-mb-md";
-const DESCRIPTION_LOCATOR = "p.q-mb-xl";
 
 class PersonalDetails {
     acccessPersonalDetailPage() {
@@ -28,7 +24,7 @@ class PersonalDetails {
         return this;
     }
 
-    selectBirthDay(date){
+    selectBirthDay(){
         Common.waitForPageLoading();
         const DATE_SELECT = "//div[contains(@class, 'q-date__calendar-item')]//span[text() = 20]";
         ElementHandler.waitForElementDisplayed(BIRTHDATE_SELECT);
@@ -63,36 +59,17 @@ class PersonalDetails {
     }
 
     /**
-     * @param {Int} otp //otp generate
-     */
-    verfiyOTPCode(otp) {
-        Common.waitForPageLoading()
-        ElementHandler.setValue(OTP_TXB, otp);
-        ElementHandler.click(VERIFY_OTP_BTN);
-        return this;
-    }
-
-    verifyPageAfterAddPersonalDetailSuccess() {
-        const TITLE_TEXT = "Hurray!";
-        const DESCRIPTION_TEXT = "You have successfully verified your email."
-        ElementHandler.waitForElementDisplayed(TITLE_LOCATOR)
-        ElementHandler.verifyText(TITLE_LOCATOR, TITLE_TEXT);
-        ElementHandler.verifyText(DESCRIPTION_LOCATOR, DESCRIPTION_TEXT)
-        return this;
-    }
-
-    /**
      * @param {User} user
      */
     addPersonalDetails(user){
+        this.acccessPersonalDetailPage()
         this.clickSubmitBtn();
         this.selectBirthDay();
         this.selectNationality(user.nation);
         this.selectGender(user.gender);
         this.selectPurpose(user.purpose);
         this.clickSubmitBtn();
-        this.verfiyOTPCode(user.otp);
-        this.verifyPageAfterAddPersonalDetailSuccess();
+        Common.waitForPageLoading()
         return this;
     }
 }

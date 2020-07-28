@@ -8,11 +8,7 @@ const EMAIL_TXB = 'input[data-cy="register-person-email"]';
 const PHONE_NUMBER_TXB = 'input[data-cy="register-person-phone"]';
 const HEARD_ABOUT_DRD = 'div[data-cy="register-person-heard-about"]';
 const PRIVACY_CBX = 'div[data-cy="register-person-privacy"]';
-const OTP_TXB = 'input[data-cy="digit-input-pin"]';
-const VERIFY_OTP_BTN = 'button[data-cy="verify-otp-submit"]';
 const CONTINUE_BTN = '.aspire-button--cta';
-const TITLE_LOCATOR = "div.q-mb-md";
-const DESCRIPTION_LOCATOR = "p.q-mb-xl";
 
 class RegisterPage {
     open() {
@@ -69,25 +65,6 @@ class RegisterPage {
         return this;
     }
 
-    /**
-     * @param {Int} otp //otp generate
-     */
-    verfiyOTPCode(otp) {
-        Common.waitForPageLoading();
-        ElementHandler.setValue(OTP_TXB, otp);
-        ElementHandler.click(VERIFY_OTP_BTN);
-        return this;
-    }
-
-    verifyPageAfterRegisterSuccess() {
-        const TITLE_TEXT = "Wohoo!";
-        const DESCRIPTION_TEXT = "You have successfully verified your phone number. You’re on to a great start!"
-        ElementHandler.waitForElementDisplayed(TITLE_LOCATOR)
-        ElementHandler.verifyText(TITLE_LOCATOR, TITLE_TEXT);
-        ElementHandler.verifyText(DESCRIPTION_LOCATOR, DESCRIPTION_TEXT)
-        return this;
-    }
-
     stickOnPrivacyCheckbox() {
         ElementHandler.click(PRIVACY_CBX);
         return this;
@@ -109,8 +86,6 @@ class RegisterPage {
         this.selectPersonHeardAbout(user.heard_about)
         this.stickOnPrivacyCheckbox()
         this.clickContinueBtn();
-        this.verfiyOTPCode(user.otp);
-        this.verifyPageAfterRegisterSuccess();
         Common.waitForPageLoading();
         return this;
     }
