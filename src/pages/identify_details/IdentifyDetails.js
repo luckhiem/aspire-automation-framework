@@ -57,6 +57,10 @@ class IdentifyDetails {
         return this;
     }
 
+
+   /**
+     * @param {String} number //NRIC Number of user using this site
+     */
     inputNRICNumber(number) {
         ElementHandler.addValue(NRIC_NUMBER_TXB, number);
         ElementHandler.click(SUBMIT_BTN)

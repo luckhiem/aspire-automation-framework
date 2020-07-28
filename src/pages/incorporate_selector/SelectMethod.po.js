@@ -7,7 +7,6 @@ const FORM_SELECT = '.new-form__view';
 const ACRA_METHOD_BTN = '.q-pb-md button';
 const MANUAL_VERIFY_BTN = '.q-mt-lg button';
 
-
 class MethodSelect {
     acccessMethodSelectPage() {
         BrowserHandler.navigate(CONFIG.PATH.SELECT_METHOD_URL);

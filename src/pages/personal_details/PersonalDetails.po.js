@@ -32,6 +32,9 @@ class PersonalDetails {
         return this;
     }
 
+    /**
+     * @param {String} nation //nation of user using this site
+     */
     selectNationality(nation){
         Common.waitForPageLoading()
         const NATION_ITEM = `//div[@class='q-item__label'][text()="${nation}"]`;
@@ -40,6 +43,9 @@ class PersonalDetails {
         return this;
     }
 
+    /**
+     * @param {String} gender //gender of user using this site
+     */
     selectGender(gender){
         const GENDER_ITEM = `//div[@class='q-item__label'][text()="${gender}"]`;
         ElementHandler.click(GENDER_DRD);
@@ -47,6 +53,10 @@ class PersonalDetails {
         return this;
     }
 
+    
+    /**
+     * @param {String} purpose //purpose of user using this site
+     */
     selectPurpose(purpose){
         const GENDER_ITEM = `//div[@class='q-item__label'][text()="${purpose}"]`;
         ElementHandler.click(PURPOSE_DRD);
