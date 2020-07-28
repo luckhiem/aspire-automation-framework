@@ -12,9 +12,10 @@ const user = {
     },
     otp: 123456,
     birthDate: "Jul 10, 1995",
-    nation: 'China',
+    nation: 'Afghanistan',
     gender: 'Female',
-    purpose: 'Credit Line'
+    purpose: 'Credit Line',
+    NRICNumber: '291168972'
 }
 
 const business = {
@@ -34,6 +35,6 @@ describe('Adding People', () => {
         page.MethodSelect.selectMethod()
         page.PersonalDetails.addPersonalDetails(user)
         page.BusinessDetails.addBusinessDetails(business)
-        page.IdentifyDetails.addIdentify();
+        page.IdentifyDetails.addIdentify(user);
     });
 });

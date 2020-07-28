@@ -61,6 +61,7 @@ class BusinessDetails {
         const BUSINESS_ROLE_ITEM = `//div[@class='q-item__label'][text()="${role}"]`;
         ElementHandler.waitForElementDisplayed(BUSINESS_ROLE_DRD)
         ElementHandler.click(BUSINESS_ROLE_DRD);
+        ElementHandler.waitForElementDisplayed(BUSINESS_ROLE_ITEM)
         ElementHandler.click(BUSINESS_ROLE_ITEM);
         return this;
     }

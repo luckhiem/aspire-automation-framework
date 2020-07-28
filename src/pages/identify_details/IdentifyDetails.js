@@ -71,7 +71,7 @@ class IdentifyDetails {
         this.beginVerification();
         this.verifyIdentifyCard();
         this.takeSelfie();
-        this.inputNRICNumber(user.number)
+        this.inputNRICNumber(user.NRICNumber)
         Common.waitForPageLoading();
         return this;
     }
