@@ -29,9 +29,11 @@ class PersonalDetails {
     }
 
     selectBirthDay(date){
-        Common.waitForPageLoading()
-        const DATE_SELECT = "//div[contains(@class, 'q-date__calendar-item')]//span[text() = 20]"
+        Common.waitForPageLoading();
+        const DATE_SELECT = "//div[contains(@class, 'q-date__calendar-item')]//span[text() = 20]";
+        ElementHandler.waitForElementDisplayed(BIRTHDATE_SELECT);
         ElementHandler.click(BIRTHDATE_SELECT);
+        ElementHandler.waitForElementDisplayed(DATE_SELECT)
         ElementHandler.click(DATE_SELECT);
         return this;
     }
