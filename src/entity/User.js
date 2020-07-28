@@ -13,7 +13,6 @@ class ChannelHeard {
 }
 
 class User {
-
     /**
      * @param {string} name
      * @param {string} email

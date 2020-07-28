@@ -4,7 +4,7 @@ const Faker = require('faker');
 
 const user1 = new User()
 user1.name = Faker.name.findName();
-user1.email = Faker.internet.email();
+user1.email = Faker.internet.exampleEmail();
 user1.phone = Utils.generateNumber();
 user1.otp = 123456;
 user1.heard_about.channel = "Referral";
