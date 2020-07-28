@@ -11,6 +11,7 @@ const CONTINUE_BTN = "div[label='Continue'] button";
 const BEGIN_BTN = "div[label='Begin Verification'] button";
 const IDENTIFY_CARD_BTN = '.onfido-sdk-ui-DocumentSelector-icon-national-identity-card';
 const IDENTIFY_CARD_UPLOAD = '.onfido-sdk-ui-CustomFileInput-input';
+const IDENTIFY_CARD_INDEX = '.onfido-sdk-ui-Uploader-iconContainer';
 const CARD_SUBMIT_BTN = '.onfido-sdk-ui-Button-button-primary';
 const TAKE_SELFIE_BTN = '.onfido-sdk-ui-Camera-btn';
 const NRIC_NUMBER_TXB = 'input[data-cy="identity-edit-nric"]';
@@ -43,7 +44,7 @@ class IdentifyDetails {
         ElementHandler.click(IDENTIFY_CARD_BTN);
         $(IDENTIFY_CARD_UPLOAD).addValue(filePath);
         ElementHandler.click(CARD_SUBMIT_BTN);
-        ElementHandler.waitForElementDisplayed(".onfido-sdk-ui-Uploader-iconContainer");
+        ElementHandler.waitForElementDisplayed(IDENTIFY_CARD_INDEX);
         $(IDENTIFY_CARD_UPLOAD).addValue(filePath);
         ElementHandler.click(CARD_SUBMIT_BTN);
         return this;
@@ -65,11 +66,11 @@ class IdentifyDetails {
     }
 
     verifyPageAfterAddIdentifySuccess() {
-        const TITLE_TEXT = "You are amazing and you know it";
-        const DESCRIPTION_TEXT = "You have successfully completed the KYC processs and we have received your documents."
+        const TITLE_TEXT = "We are on it!";
+        const DESCRIPTION_TEXT = "Please sit back, relax and listen to some Beethoven while our team reviews them. We shall get back to you within 24 hours."
         ElementHandler.waitForElementDisplayed(TITLE_LOCATOR)
         ElementHandler.verifyText(TITLE_LOCATOR, TITLE_TEXT);
-        ElementHandler.verifyText(DESCRIPTION_LOCATOR, DESCRIPTION_TEXT)
+        ElementHandler.verifyText(DESCRIPTION_LOCATOR, DESCRIPTION_TEXT);
         return this;
     }
 
@@ -82,7 +83,10 @@ class IdentifyDetails {
         this.beginVerification();
         this.verifyIdentifyCard();
         this.takeSelfie();
-        this.inputNRICNumber(user.NRICNumber)
+        this.inputNRICNumber(user.NRICNumber);
+        Common.waitForPageLoading();
+        browser.pause(10000)
+        this.verifyPageAfterAddIdentifySuccess()
         Common.waitForPageLoading();
         return this;
     }

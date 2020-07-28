@@ -1,5 +1,5 @@
 node_modules
 allure-results
 allure-report
-package-lock.json
 .DS_Store
+package-lock.json
