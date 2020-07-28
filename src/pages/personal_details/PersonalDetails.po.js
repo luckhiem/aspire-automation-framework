@@ -11,6 +11,8 @@ const GENDER_DRD = "div[data-cy='kyc-gender']";
 const PURPOSE_DRD = "div[data-cy='person-edit-purpose']";
 const OTP_TXB = 'input[data-cy="digit-input-pin"]';
 const VERIFY_OTP_BTN = 'button[data-cy="verify-otp-submit"]';
+const TITLE_LOCATOR = "div.q-mb-md";
+const DESCRIPTION_LOCATOR = "p.q-mb-xl";
 
 class PersonalDetails {
     acccessPersonalDetailPage() {
@@ -69,11 +71,11 @@ class PersonalDetails {
     }
 
     verifyPageAfterAddPersonalDetailSuccess() {
-        const TITLE_LOCATOR = "div.q-mb-md";
-        const DESCRIPTION_LOCATOR = "p.q-mb-xl";
+        const TITLE_TEXT = "Hurray!";
+        const DESCRIPTION_TEXT = "You have successfully verified your email."
         ElementHandler.waitForElementDisplayed(TITLE_LOCATOR)
-        ElementHandler.verifyText(TITLE_LOCATOR, "Hurray!");
-        ElementHandler.verifyText(DESCRIPTION_LOCATOR, "You have successfully verified your email.")
+        ElementHandler.verifyText(TITLE_LOCATOR, TITLE_TEXT);
+        ElementHandler.verifyText(DESCRIPTION_LOCATOR, DESCRIPTION_TEXT)
         return this;
     }
 

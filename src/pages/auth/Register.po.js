@@ -11,7 +11,8 @@ const PRIVACY_CBX = 'div[data-cy="register-person-privacy"]';
 const OTP_TXB = 'input[data-cy="digit-input-pin"]';
 const VERIFY_OTP_BTN = 'button[data-cy="verify-otp-submit"]';
 const CONTINUE_BTN = '.aspire-button--cta';
-
+const TITLE_LOCATOR = "div.q-mb-md";
+const DESCRIPTION_LOCATOR = "p.q-mb-xl";
 
 class RegisterPage {
     open() {
@@ -79,11 +80,11 @@ class RegisterPage {
     }
 
     verifyPageAfterRegisterSuccess() {
-        const TITLE_LOCATOR = "div.q-mb-md";
-        const DESCRIPTION_LOCATOR = "p.q-mb-xl";
+        const TITLE_TEXT = "Wohoo!";
+        const DESCRIPTION_TEXT = "You have successfully verified your phone number. You’re on to a great start!"
         ElementHandler.waitForElementDisplayed(TITLE_LOCATOR)
-        ElementHandler.verifyText(TITLE_LOCATOR, "Wohoo!");
-        ElementHandler.verifyText(DESCRIPTION_LOCATOR, "You have successfully verified your phone number. You’re on to a great start!")
+        ElementHandler.verifyText(TITLE_LOCATOR, TITLE_TEXT);
+        ElementHandler.verifyText(DESCRIPTION_LOCATOR, DESCRIPTION_TEXT)
         return this;
     }
 

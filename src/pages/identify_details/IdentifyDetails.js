@@ -14,7 +14,9 @@ const IDENTIFY_CARD_UPLOAD = '.onfido-sdk-ui-CustomFileInput-input';
 const CARD_SUBMIT_BTN = '.onfido-sdk-ui-Button-button-primary';
 const TAKE_SELFIE_BTN = '.onfido-sdk-ui-Camera-btn';
 const NRIC_NUMBER_TXB = 'input[data-cy="identity-edit-nric"]';
-const SUBMIT_BTN = ".aspire-button--cta"
+const SUBMIT_BTN = ".aspire-button--cta";
+const TITLE_LOCATOR = "div.q-mb-md";
+const DESCRIPTION_LOCATOR = "p.q-mb-xl";
 
 class IdentifyDetails {
     acccessIdentifyDetailPage() {
@@ -59,6 +61,15 @@ class IdentifyDetails {
     inputNRICNumber(number) {
         ElementHandler.addValue(NRIC_NUMBER_TXB, number);
         ElementHandler.click(SUBMIT_BTN)
+        return this;
+    }
+
+    verifyPageAfterAddIdentifySuccess() {
+        const TITLE_TEXT = "You are amazing and you know it";
+        const DESCRIPTION_TEXT = "You have successfully completed the KYC processs and we have received your documents."
+        ElementHandler.waitForElementDisplayed(TITLE_LOCATOR)
+        ElementHandler.verifyText(TITLE_LOCATOR, TITLE_TEXT);
+        ElementHandler.verifyText(DESCRIPTION_LOCATOR, DESCRIPTION_TEXT)
         return this;
     }
 
