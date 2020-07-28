@@ -85,8 +85,7 @@ class IdentifyDetails {
         this.takeSelfie();
         this.inputNRICNumber(user.NRICNumber);
         Common.waitForPageLoading();
-        browser.pause(10000)
-        this.verifyPageAfterAddIdentifySuccess()
+        this.verifyPageAfterAddIdentifySuccess();
         Common.waitForPageLoading();
         return this;
     }
